@@ -1,0 +1,12 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>common</artifactId>
+    <version>1</version>
+
+    <parent>
+        <groupId>pl.iogreen.jboss</groupId>
+        <artifactId>poc</artifactId>
+        <version>1</version>
+    </parent>
+
+</project>

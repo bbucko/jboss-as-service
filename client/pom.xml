@@ -1,0 +1,57 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>client</artifactId>
+    <version>1</version>
+
+    <parent>
+        <groupId>pl.iogreen.jboss</groupId>
+        <artifactId>poc</artifactId>
+        <version>1</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>pl.iogreen.jboss</groupId>
+            <artifactId>common</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>pl.iogreen.jboss</groupId>
+            <artifactId>service</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>org.jboss.as</groupId>-->
+        <!--<artifactId>jboss-as-jmx</artifactId>-->
+        <!--<version>7.1.1.Final</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>org.jboss.as</groupId>-->
+        <!--<artifactId>jboss-as-platform-mbean</artifactId>-->
+        <!--<version>7.1.1.Final</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Dependencies>org.apache.log4j, pl.iogreen.jboss.common export</Dependencies>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
