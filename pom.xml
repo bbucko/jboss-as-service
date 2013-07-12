@@ -53,17 +53,13 @@
                     </archive>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-            <!--<groupId>org.apache.maven.plugins</groupId>-->
-            <!--<artifactId>maven-ejb-plugin</artifactId>-->
-            <!--<version>2.3</version>-->
-            <!--<configuration>-->
-            <!--<ejbVersion>3.0</ejbVersion>-->
-            <!--<archive>-->
-            <!--<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>-->
-            <!--</archive>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jboss-packaging-maven-plugin</artifactId>
+                <version>2.2</version>
+                <!-- Enable packaging types and lifecycle bindings. -->
+                <extensions>true</extensions>
+            </plugin>
         </plugins>
     </build>
 </project>

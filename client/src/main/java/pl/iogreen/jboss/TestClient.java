@@ -1,5 +1,6 @@
 package pl.iogreen.jboss;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import pl.iogreen.jboss.common.Common;
 import pl.iogreen.jboss.common.CommonInterface;
@@ -13,7 +14,7 @@ public class TestClient implements TestClientMBean {
     private final static MBeanServer server = ManagementFactory.getPlatformMBeanServer();
 
     public TestClient() {
-        log.info("Hello from version " + new Common().version);
+        log.info("Hello from version " + new Common().version + StringUtils.defaultIfBlank(" and from service: Client", ""));
     }
 
     @Override
@@ -29,6 +30,8 @@ public class TestClient implements TestClientMBean {
     @Override
     public void testClient() {
         try {
+            StringUtils.abbreviate("Hello world", 3);
+
             final ObjectName mbeanObject = new ObjectName("jboss:name=service,type=service,version=2");
 
             final CommonInterface handler = MBeanServerInvocationHandler.newProxyInstance(server, mbeanObject, CommonInterface.class, false);
