@@ -1,13 +1,14 @@
 package pl.iogreen.jboss;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.iogreen.jboss.common.Common;
 import pl.iogreen.jboss.common.CommonInterface;
 
 public class TestService implements TestServiceMBean, CommonInterface {
 
-    private final static Logger log = Logger.getLogger(TestService.class);
+    private final static Logger log = LoggerFactory.getLogger(TestService.class);
 
     public TestService() {
         log.info("Hello from version " + new Common().version + StringUtils.defaultIfBlank(" and from service: Service", ""));

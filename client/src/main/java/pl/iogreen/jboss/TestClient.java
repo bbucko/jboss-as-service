@@ -1,7 +1,8 @@
 package pl.iogreen.jboss;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.iogreen.jboss.common.Common;
 import pl.iogreen.jboss.common.CommonInterface;
 
@@ -10,7 +11,7 @@ import java.lang.management.ManagementFactory;
 
 public class TestClient implements TestClientMBean {
 
-    private final static Logger log = Logger.getLogger(TestClient.class);
+    private final static Logger log = LoggerFactory.getLogger(TestClient.class);
     private final static MBeanServer server = ManagementFactory.getPlatformMBeanServer();
 
     public TestClient() {
