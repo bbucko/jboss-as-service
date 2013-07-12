@@ -13,31 +13,30 @@ public class TestClient implements TestClientMBean {
 
     private final static Logger log = LoggerFactory.getLogger(TestClient.class);
     private final static MBeanServer server = ManagementFactory.getPlatformMBeanServer();
+    private final static String client = "Client";
 
     public TestClient() {
-        log.info("Hello from version " + new Common().version + StringUtils.defaultIfBlank(" and from service: Client", ""));
+        log.info("Hello from Common version {} and from service: {}", StringUtils.capitalize(new Common("Client").version), client);
     }
 
     @Override
     public void stop() {
-        log.info("Stop");
+        log.info("Stopping MBean: {}", client);
     }
 
     @Override
     public void start() {
-        log.info("Start");
+        log.info("Starting MBean: {}", client);
     }
 
     @Override
     public void testClient() {
         try {
-            StringUtils.abbreviate("Hello world", 3);
-
-            final ObjectName mbeanObject = new ObjectName("jboss:name=service,type=service,version=2");
-
+            final ObjectName mbeanObject = new ObjectName("jboss:name=service,type=service");
             final CommonInterface handler = MBeanServerInvocationHandler.newProxyInstance(server, mbeanObject, CommonInterface.class, false);
-            handler.testService(new Common());
+            handler.testService(new Common("Client"));
         } catch (Exception ex) {
+            log.error("Error occurred during MBean invocation.", ex);
             ex.printStackTrace();
         }
     }
