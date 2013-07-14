@@ -1,12 +1,16 @@
-package pl.iogreen.jboss;
+package pl.iogreen.jboss.client;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import pl.iogreen.jboss.client.config.ClientConfig;
 import pl.iogreen.jboss.common.Common;
 import pl.iogreen.jboss.common.CommonInterface;
 
-import javax.management.*;
+import javax.management.MBeanServer;
+import javax.management.MBeanServerInvocationHandler;
+import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
 
 public class TestClient implements TestClientMBean {
@@ -15,6 +19,8 @@ public class TestClient implements TestClientMBean {
     private final static MBeanServer server = ManagementFactory.getPlatformMBeanServer();
     private final static String client = "Client";
 
+    private AnnotationConfigApplicationContext context;
+
     public TestClient() {
         log.info("Hello from Common version {} and from service: {}", StringUtils.capitalize(new Common("Client").version), client);
     }
@@ -22,11 +28,14 @@ public class TestClient implements TestClientMBean {
     @Override
     public void stop() {
         log.info("Stopping MBean: {}", client);
+        context.stop();
     }
 
     @Override
     public void start() {
         log.info("Starting MBean: {}", client);
+        context = new AnnotationConfigApplicationContext(ClientConfig.class);
+        context.start();
     }
 
     @Override

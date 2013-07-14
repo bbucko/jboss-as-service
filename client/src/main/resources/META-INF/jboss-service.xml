@@ -2,5 +2,5 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="urn:jboss:service:7.0 http://www.jboss.org/schema/jbossas/jboss-service_7_0.xsd">
 
-    <mbean name="jboss:name=client,type=service,version=2" code="pl.iogreen.jboss.TestClient"/>
+    <mbean name="jboss:name=client,type=service,version=2" code="pl.iogreen.jboss.client.TestClient"/>
 </server>

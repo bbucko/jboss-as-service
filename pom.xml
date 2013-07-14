@@ -5,6 +5,10 @@
     <packaging>pom</packaging>
     <version>1</version>
 
+    <properties>
+        <org.springframework.version>3.2.3.RELEASE</org.springframework.version>
+    </properties>
+
     <modules>
         <module>common</module>
         <module>service</module>
@@ -20,6 +24,28 @@
         </dependency>
     </dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <repositories>
         <repository>
             <id>jboss-maven2-release-repository</id>
@@ -34,6 +60,11 @@
                 <artifactId>jboss-packaging-maven-plugin</artifactId>
                 <version>2.2</version>
                 <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.4.Final</version>
             </plugin>
         </plugins>
     </build>

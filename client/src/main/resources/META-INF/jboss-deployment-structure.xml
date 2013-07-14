@@ -7,6 +7,13 @@
         </dependencies>
         <resources>
             <resource-root path="lib/commons-lang-2.6.jar"/>
+            <resource-root path="lib/commons-logging-1.1.1.jar"/>
+            <resource-root path="lib/spring-core-3.2.3.RELEASE.jar"/>
+            <resource-root path="lib/spring-beans-3.2.3.RELEASE.jar"/>
+            <resource-root path="lib/spring-context-3.2.3.RELEASE.jar"/>
+            <resource-root path="lib/spring-core-3.2.3.RELEASE.jar"/>
+            <resource-root path="lib/spring-aop-3.2.3.RELEASE.jar"/>
+            <resource-root path="lib/spring-expression-3.2.3.RELEASE.jar"/>
         </resources>
     </deployment>
 </jboss-deployment-structure>

@@ -1,4 +1,4 @@
-package pl.iogreen.jboss;
+package pl.iogreen.jboss.client;
 
 public interface TestClientMBean {
     void stop();
