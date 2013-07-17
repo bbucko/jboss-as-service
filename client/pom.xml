@@ -34,6 +34,18 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
-
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                    <filename>${project.artifactId}-${project.version}.sar</filename>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

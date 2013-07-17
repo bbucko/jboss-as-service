@@ -7,12 +7,15 @@
 
     <properties>
         <org.springframework.version>3.2.3.RELEASE</org.springframework.version>
+        <jax-rs.version>1.1.1</jax-rs.version>
+        <resteasy.version>2.3.1.GA</resteasy.version>
     </properties>
 
     <modules>
         <module>common</module>
         <module>service</module>
         <module>client</module>
+        <module>web</module>
     </modules>
 
     <dependencies>
@@ -43,6 +46,27 @@
                 <artifactId>commons-lang</artifactId>
                 <version>2.6</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxrs</artifactId>
+                <version>${resteasy.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jackson-provider</artifactId>
+                <version>${resteasy.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxb-provider</artifactId>
+                <version>${resteasy.version}</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -64,8 +88,19 @@
             <plugin>
                 <groupId>org.jboss.as.plugins</groupId>
                 <artifactId>jboss-as-maven-plugin</artifactId>
-                <version>7.4.Final</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jboss.as.plugins</groupId>
+                    <artifactId>jboss-as-maven-plugin</artifactId>
+                    <version>7.4.Final</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>
